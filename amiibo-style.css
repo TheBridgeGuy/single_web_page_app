@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #a8a8a8;
+    background-image: 
+        radial-gradient(circle at 25% 25%, #b8b8b8 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, #909090 0%, transparent 50%);
+    min-height: 100vh;
+    color: #0f380f;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #3b82f6;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.gameboy-buttons {
+    position: fixed;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.gameboy-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #dc2626;
+    border: 4px solid #7f1d1d;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 
+        inset 2px 2px 0px #ef4444,
+        inset -2px -2px 0px #991b1b,
+        4px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    line-height: 1.2;
+    position: relative;
+}
+
+#showOwnedBtn {
+    margin-left: 40px;
+}
+
+#showWishlistBtn {
+    margin-left: 0px;
+}
+
+.gameboy-btn span {
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+}
+
+.gameboy-btn:hover {
+    background: #b91c1c;
+    transform: translateY(2px);
+    box-shadow: 
+        inset -2px -2px 0px #ef4444,
+        inset 2px 2px 0px #991b1b,
+        2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gameboy-btn:active {
+    transform: translateY(4px);
+    box-shadow: 
+        inset -2px -2px 0px #ef4444,
+        inset 2px 2px 0px #991b1b;
+}
+
+#searchInput {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 3px solid #0f380f;
+    border-radius: 10px;
+    width: 400px;
+    outline: none;
+    background: #9bbc0f;
+    color: #0f380f;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+#searchInput::placeholder {
+    color: #306230;
+}
+
+#searchBtn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #8bac0f;
+    border: 3px solid #0f380f;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #0f380f;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+#searchBtn:hover {
+    background: #9bbc0f;
+    transform: translateY(-2px);
+}
+
+main {
+    background: #9bbc0f;
+    border: 4px solid #0f380f;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 
+        inset 2px 2px 0px #8bac0f,
+        inset -2px -2px 0px #306230,
+        4px 4px 0px #0f380f;
+}
+
+.amiibo-card {
+    display: flex;
+    gap: 20px;
+    background: #8bac0f;
+    border: 3px solid #0f380f;
+    border-radius: 10px;
+    padding: 25px;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    box-shadow: 
+        inset 1px 1px 0px #9bbc0f,
+        inset -1px -1px 0px #306230;
+}
+
+.image-section {
+    flex-shrink: 0;
+}
+
+.image-section img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #9bbc0f;
+    border: 3px solid #0f380f;
+    padding: 10px;
+    box-shadow: 
+        inset 1px 1px 0px #8bac0f,
+        inset -1px -1px 0px #306230;
+}
+
+.info-section {
+    flex: 1;
+}
+
+.info-section h2 {
+    font-size: 1.8rem;
+    color: #0f380f;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #306230;
+}
+
+.amiibo-details p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Courier New', monospace;
+    color: #0f380f;
+}
+
+.amiibo-details strong {
+    color: #306230;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 140px;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    border: 2px solid #0f380f;
+    background: #9bbc0f;
+    color: #0f380f;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    box-shadow: 
+        inset 1px 1px 0px #8bac0f,
+        inset -1px -1px 0px #306230;
+}
+
+.action-btn:hover {
+    background: #8bac0f;
+    box-shadow: 
+        inset -1px -1px 0px #8bac0f,
+        inset 1px 1px 0px #306230;
+    transform: translateY(1px);
+}
+
+.action-btn.owned {
+    background: #306230;
+    color: #9bbc0f;
+}
+
+.action-btn.wishlist {
+    background: #1e3a8a;
+    color: #9bbc0f;
+}
+
+.filters {
+    min-width: 250px;
+}
+
+.filters h3 {
+    margin-bottom: 15px;
+    color: #0f380f;
+    font-size: 1.3rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    border: 3px solid #0f380f;
+    background: #8bac0f;
+    color: #0f380f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    transition: all 0.2s ease;
+    box-shadow: 
+        inset 1px 1px 0px #9bbc0f,
+        inset -1px -1px 0px #306230;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #9bbc0f;
+    box-shadow: 
+        inset -1px -1px 0px #9bbc0f,
+        inset 1px 1px 0px #306230;
+    transform: translateY(1px);
+}
+
+.amiibo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.amiibo-item {
+    background: #8bac0f;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 
+        inset 1px 1px 0px #9bbc0f,
+        inset -1px -1px 0px #306230;
+}
+
+.amiibo-item:hover {
+    transform: translateY(-2px);
+    background: #9bbc0f;
+    box-shadow: 
+        inset -1px -1px 0px #9bbc0f,
+        inset 1px 1px 0px #306230,
+        2px 4px 0px #0f380f;
+}
+
+.amiibo-item img {
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #9bbc0f;
+}
+
+.amiibo-item h4 {
+    font-size: 1rem;
+    color: #0f380f;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.amiibo-item p {
+    font-size: 0.9rem;
+    color: #306230;
+    font-family: 'Courier New', monospace;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #0f380f;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #searchInput {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .gameboy-buttons {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        gap: 20px;
+    }
+
+    .gameboy-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 16px;
+    }
+
+    .gameboy-btn span {
+        font-size: 10px;
+    }
+
+    #showOwnedBtn {
+        margin-left: 20px;
+    }
+
+    #showWishlistBtn {
+        margin-left: 0px;
+    }
+
+    .amiibo-card {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .image-section img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        justify-content: center;
+        min-width: auto;
+    }
+
+    .amiibo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.amiibo-item {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.amiibo-card {
+    animation: fadeIn 0.3s ease-out;
+}

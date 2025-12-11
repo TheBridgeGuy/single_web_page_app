@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amiiboy Explorer</title>
+    <link rel="stylesheet" href="amiibo-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="titleHeader" style="cursor: pointer;">Amiiboy</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search">
+                <button id="searchBtn">🔍</button>
+            </div>
+        </header>
+
+        <div class="gameboy-buttons">
+            <button id="showOwnedBtn" class="gameboy-btn">A<br><span>OWNED</span></button>
+            <button id="showWishlistBtn" class="gameboy-btn">B<br><span>WISHLIST</span></button>
+        </div>
+
+        <main>
+            <div class="amiibo-card">
+                <div class="image-section">
+                    <img id="amiiboImage" src="" alt="Amiibo Image" />
+                </div>
+                <div class="info-section">
+                    <h2 id="amiiboName">Info about amiibo</h2>
+                    <div class="amiibo-details">
+                        <p><strong>Character:</strong> <span id="character">-</span></p>
+                        <p><strong>Game Series:</strong> <span id="gameSeries">-</span></p>
+                        <p><strong>Type:</strong> <span id="type">-</span></p>
+                        <p><strong>Release Date (NA):</strong> <span id="releaseDate">-</span></p>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="toggleOwnedBtn" class="action-btn">Toggle Owned</button>
+                    <button id="toggleWishlistBtn" class="action-btn">Toggle Wishlist</button>
+                    <button id="showSeriesBtn" class="action-btn">Show Series</button>
+                </div>
+            </div>
+
+            <div class="amiibo-grid" id="amiiboGrid">
+
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <p>Loading amiibo...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="amiibo-script.js"></script>
+</body>
+</html>
